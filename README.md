@@ -103,7 +103,6 @@ Ransak
 
 ・画像登録
 ImageMagic/Cloudinary
-比較検討したうえで決定
 
 ・インライン編集機能
 Hotwire + Turbo
