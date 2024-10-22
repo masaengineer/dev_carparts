@@ -5,6 +5,6 @@ module.exports = {
     './app/assets/stylesheets/**/*.css',
     './app/javascript/**/*.js'
   ],
-  plugins: [require("daisyi")],
+  plugins: [require("daisyui")],
   daisyui: {},
 }
