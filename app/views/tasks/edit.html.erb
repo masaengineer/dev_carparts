@@ -1,0 +1,37 @@
+<% content_for :title, "Editing task" %>
+
+<h1>Editing task</h1>
+
+<%= render "form", task: @task %>
+
+<br>
+
+<div>
+  <%= link_to "Show this task", @task %> |
+  <%= link_to "Back to tasks", tasks_path %>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= task.id %></td>
+        <td><%= task.title %></td>
+        <td><%= task.description %></td>
+        <td>
+          <%= link_to "Show", task %>
+          <%= link_to "Edit", edit_task_path(task) %>
+          <%= link_to "Delete", task, method: :delete, data: { confirm: "Are you sure?" } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
