@@ -71,3 +71,7 @@ MVPリリース
 ・画像ドラッグアンドドロップ機能: Stimulus
 
 ・テストコード: SimpleCov
+
+■ 画面遷移図
+
+Figma：　[こちらをご覧ください](https://www.figma.com/design/jDYSP6h30JDizLaD605Yiq/%E5%8D%92%E5%88%B6-%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3--Parts-Sync?node-id=0-1&t=QhD4PWYv6qIeoEnf-1)
