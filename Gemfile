@@ -35,6 +35,9 @@ end
 
 group :development do
   gem "web-console"
+  gem "erb_lint", require: false
+  gem "rubocop", require: false
+  gem "htmlbeautifier"
 end
 
 group :test do
