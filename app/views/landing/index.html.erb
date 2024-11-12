@@ -1,0 +1,14 @@
+<div class="bg-white pt-4 pr-8 pb-4 pl-8">
+  <nav class="w-full">
+    <%= render 'shared/navbar' %>
+  </nav>
+</div>
+<%= render 'landing/main_content' %>
+<%= render 'shared/footer' %>
+<script>
+    const btn = document.querySelector(".mobile-menu-button");
+    const menu = document.querySelector(".mobile-menu");
+    btn.addEventListener("click", () => {
+    menu.classList.toggle("hidden");
+    });
+</script>
