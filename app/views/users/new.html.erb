@@ -1,7 +1,67 @@
-<div class="mx-auto md:w-2/3 w-full">
-  <h1 class="font-bold text-4xl">New user</h1>
-
-  <%= render "form", user: @user %>
-
-  <%= link_to "Back to users", users_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+<div class="bg-white pt-4 pr-8 pb-4 pl-8">
+  <nav class="w-full">
+    <div class="flex w-full justify-between max-w-screen-2xl md:flex-row mt-auto mr-auto mb-auto ml-auto">
+      <div class="flex w-full justify-center items-center">
+        <img src="https://res.cloudinary.com/speedwares/image/upload/v1659284687/windframe-logo-main_daes7r.png"
+            class="w-12 md:w-16"/>
+      </div>
+      <div class="flex flex-row bg-white justify-center items-center md:m-0 hidden md:flex"></div>
+    </div>
+  </nav>
 </div>
+<div class="mx-auto bg-white items-center justify-center flex py-16 max-w-screen-2xl p-4 relative isolate">
+  <div class="w-full p-8 max-w-lg relative isolate">
+    <p class="text-center text-4xl font-bold tracking-tight mb-10">Sign up</p>
+    <p class="text-lg text-center text-gray-500 w-10.12 mx-auto">Hey, enter yout details to sign up</p>
+    <form class="mt-10">
+      <div class="space-y-5">
+        <input type="text" placeholder="Enter name" class="border border-gray-200 p-3 focus:ring-1 focus:ring-gray-600
+            focus:outline-none w-full rounded-lg bg-white"/>
+        <input type="text" placeholder="Enter email" class="border border-gray-200 p-3 focus:ring-1 focus:ring-gray-600
+            focus:outline-none w-full rounded-lg bg-white"/>
+        <input type="password" placeholder="Enter password" class="border border-gray-200 p-3 focus:ring-1
+            focus:ring-gray-600 focus:outline-none w-full rounded-lg bg-white"/>
+      </div>
+      <button type="submit" fontfamily="Arial" class="p-3 w-full bg-black text-white rounded-lg mt-10
+          font-semibold">Sign up</button>
+    </form>
+  </div>
+</div>
+<footer class="
+    fixed          /* 追加: 位置を固定 */
+    bottom-0       /* 追加: 下部に固定 */
+    left-0         /* 追加: 左端に固定 */
+    right-0        /* 追加: 右端に固定 */
+    w-full         /* 追加: 幅を100%に */
+    bg-white
+    pt-16
+    pb-10
+    text-gray-800
+    transition-colors
+    duration-300
+    border-t       /* 追加: 上部の境界線 */
+    border-gray-200  /* 追加: 境界線の色 */
+">
+  <div class="mx-auto items-center justify-center lg:flex-row lg:justify-between border-t border-gray-500 flex
+      max-w-screen-2xl flex-col gap-8 p-6">
+    <p class="text-center lg:text-start">Copyright © 2024 Windframe Templates | All Rights Reserved</p>
+    <div>
+      <nav class="items-center justify-center lg:flex-row lg:justify-start flex flex-col gap-8">
+        <ul class="lg:grid-cols-4 grid list-none grid-cols-2 gap-8">
+          <li class="text-center">
+            <a href="#" class="decoration-none no-underline hover:text-gray-400">About</a>
+          </li>
+          <li class="text-center">
+            <a href="#" class="decoration-none no-underline hover:text-gray-400">License</a>
+          </li>
+          <li class="text-center">
+            <a href="#" class="decoration-none no-underline hover:text-gray-400">Features</a>
+          </li>
+          <li class="text-center">
+            <a href="#" class="decoration-none no-underline hover:text-gray-400">Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</footer>
