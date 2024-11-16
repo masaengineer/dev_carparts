@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  resources :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  # Deviseのルーティングを最初に配置
+  devise_for :users, controllers: {
+    sessions: 'users/sessions'
+  }
 
-  # Defines the root path route ("/")
-  root "landing#index"
+  resources :landing, only: [:index]
+  root "sales_management#index"
 end
