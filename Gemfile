@@ -60,6 +60,8 @@ group :development, :test do
 
   # セキュリティ監査のためのgem
   gem "bundler-audit"
+  # セキュリティ脆弱性スキャンのためのgem
+  gem "brakeman"
 end
 
 group :development do
