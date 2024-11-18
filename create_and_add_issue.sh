@@ -26,7 +26,26 @@ ISSUE_URL="https://github.com/$OWNER/parts-sync/issues/${ISSUE_NUMBER##*/}"
 echo "作成されたIssueのURL: $ISSUE_URL"
 
 # プロジェクトにIssueを追加（オーナーを明示的に指定）
-gh project item-add "$PROJECT_NUMBER" --owner "$OWNER" --url "$ISSUE_URL"
+ITEM_ID=$(gh project item-add "$PROJECT_NUMBER" --owner "$OWNER" --url "$ISSUE_URL" --format json | jq -r '.id')
+
+# ストーリーポイントフィールドを更新
+gh api graphql -f query='
+  mutation {
+    updateProjectV2ItemFieldValue(
+      input: {
+        projectId: "'$PROJECT_NUMBER'"
+        itemId: "'$ITEM_ID'"
+        fieldId: "STORY_POINTS_FIELD_ID"  # GitHubプロジェクトの実際のフィールドIDに置き換えてください
+        value: {
+          number: '$STORY_POINTS'
+        }
+      }
+    ) {
+      projectV2Item {
+        id
+      }
+    }
+  }'
 
 # 成功メッセージ
-echo "Issueをプロジェクト番号 $PROJECT_NUMBER に追加しました。"
+echo "Issueをプロジェクト番号 $PROJECT_NUMBER に追加し、ストーリーポイントを設定しました。"
