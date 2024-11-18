@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
-  # Deviseのルーティングを最初に配置
   devise_for :users, controllers: {
     sessions: 'users/sessions'
   }
-
   resources :landing, only: [:index]
-  root "sales_management#index"
+  resources :sales_management, only: [:index]
+
+  authenticated :user do
+    root 'sales_management#index', as: :authenticated_root
+  end
+
+  root 'landing#index'
 end
