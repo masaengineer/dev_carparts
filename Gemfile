@@ -63,6 +63,11 @@ group :development, :test do
 
   # セキュリティ脆弱性を検出するためのgem
   gem "brakeman"
+
+  # Rubyのコード規約チェックツール
+  gem "rubocop", require: false
+  gem "rubocop-rails", require: false
+  gem "rubocop-rspec", require: false
 end
 
 group :development do
@@ -82,4 +87,5 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+  gem 'database_cleaner-active_record'
 end
