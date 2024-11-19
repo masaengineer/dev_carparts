@@ -2,12 +2,15 @@ version: '3'
 services:
   db:
     image: postgres
+    container_name: parts-sync-db
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
       - postgres_volume:/var/lib/postgresql/data
     restart: always
+    networks:
+      - parts-sync-network
   web:
     build: .
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
@@ -23,6 +26,18 @@ services:
     tty: true
     stdin_open: true
     depends_on:
-      - db
+      db:
+        condition: service_healthy
+    networks:
+      - parts-sync-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 volumes:
   postgres_volume:
+
+networks:
+  parts-sync-network:
+    driver: bridge

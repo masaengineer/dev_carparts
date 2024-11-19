@@ -1,5 +1,5 @@
-class SalesManagementController < ApplicationController
-  def index
+# frozen_string_literal: true
 
-  end
+class SalesManagementController < ApplicationController
+  def index; end
 end
