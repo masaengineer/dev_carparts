@@ -38,19 +38,15 @@ jobs:
 
       - name: Build and run tests
         run: |
-          # 環境変数が正しく設定されているか確認
-          echo "Database URL: $DATABASE_URL"
+          # データベースの準備を待機
+          docker-compose up -d db
+          sleep 10  # データベースの起動を待機
 
-          # Dockerコンテナをビルド
-          docker-compose build
+          # テストの実行
           docker-compose run --rm web bash -c "
-            # 必要なGemをインストール
             bundle install && \
-            # データベースを作成し、スキーマをロード
             bin/rails db:create db:schema:load && \
-            # Railsのテストを実行
             bundle exec rails test && \
-            # システムテストを実行
             bundle exec rails test:system
           "
 
