@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
-  skip_before_action :authenticate_user!, only: [:index], if: :landing_controller?
+  skip_before_action :authenticate_user!, if: :landing_controller?
 
   private
 

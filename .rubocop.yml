@@ -1,0 +1,19 @@
+require:
+  - rubocop-rails
+  - rubocop-capybara
+
+AllCops:
+  NewCops: enable  # 新しいcopsを自動的に有効化
+  Exclude:
+    - 'config/**/*'
+    - 'bin/**/*'
+    - 'db/**/*'
+    - 'vendor/**/*'
+    - 'node_modules/**/*'
+
+# 必要に応じて特定のcopsを無効化または設定変更できます
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
