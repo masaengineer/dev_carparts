@@ -2,6 +2,7 @@ version: '3'
 services:
   db:
     image: postgres
+    container_name: parts-sync-db
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}

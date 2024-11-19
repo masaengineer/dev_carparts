@@ -4,9 +4,20 @@ on:
     branches: [ "main" ]  # mainブランチへのプッシュをトリガーにする
   pull_request:
     branches: [ "main" ]  # mainブランチへのプルリクエストをトリガーにする
+
+# 環境変数をトップレベルで定義
+env:
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: password
+  RAILS_ENV: test
+
 jobs:
   test:
     runs-on: ubuntu-latest  # テストジョブは最新のUbuntuで実行
+    # ジョブ固有の環境変数が必要な場合はここでも定義可能
+    env:
+      DATABASE_URL: postgres://postgres:password@db:5432/parts_sync_test
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4  # コードをチェックアウトするアクションを使用
@@ -27,6 +38,9 @@ jobs:
 
       - name: Build and run tests
         run: |
+          # 環境変数が正しく設定されているか確認
+          echo "Database URL: $DATABASE_URL"
+
           # Dockerコンテナをビルド
           docker-compose build
           docker-compose run --rm web bash -c "
