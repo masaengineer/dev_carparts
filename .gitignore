@@ -35,3 +35,6 @@
 
 # GitHubのトークン
 .env
+
+# vendorディレクトリを無視
+/vendor
