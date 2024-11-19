@@ -19,6 +19,12 @@ jobs:
           sudo apt-get update
           sudo apt-get install docker-compose
 
+      - name: Check Docker Compose version
+        run: docker-compose --version
+
+      - name: Check PATH
+        run: echo $PATH
+
       - name: Build and run tests
         run: |
           # Dockerコンテナをビルド
@@ -40,19 +46,24 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4  # コードをチェックアウトするアクションを使用
 
+      - name: Set up Docker Compose
+        run: |
+          sudo apt-get update
+          sudo apt-get install docker-compose
+
+      - name: Check Docker Compose version
+        run: docker-compose --version
+
+      - name: Check PATH
+        run: echo $PATH
+
       - name: Build and run linters
         run: |
-          # Dockerコンテナをビルド
           docker-compose build
           docker-compose run --rm web bash -c "
-            # 必要なGemをインストール
             bundle install && \
-            # Linter用のバイナリを生成
             bundle binstubs bundler-audit brakeman rubocop && \
-            # bundler-auditで脆弱性をチェック
             bin/bundler-audit --update && \
-            # brakemanでセキュリティチェック
             bin/brakeman -q -w2 && \
-            # rubocopでコードスタイルをチェック
             bin/rubocop --parallel
           "
