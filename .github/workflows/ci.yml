@@ -1,5 +1,5 @@
 name: "Ruby on Rails CI"
-on:
+on: [none]
   push:
     branches: [ "main" ]  # mainブランチへのプッシュをトリガーにする
   pull_request:
