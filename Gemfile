@@ -59,7 +59,7 @@ gem 'devise'
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
-  gem 'rspec'
+  gem 'dotenv-rails'
   gem 'rspec-rails'
   # セキュリティ監査のためのgem
   gem 'bundler-audit'
@@ -73,6 +73,8 @@ group :development, :test do
   gem 'rubocop-rspec', require: false
   # Capybaraのコード品質チェック用
   gem 'rubocop-capybara', require: false
+  gem 'factory_bot_rails'  # テストデータ作成用
+  gem 'faker'              # ダミーデータ生成用
 end
 
 group :development do
