@@ -72,7 +72,18 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
-  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.delivery_method = :letter_opener_web
 
   config.action_mailer.letter_opener_url = 'http://localhost:3000/letter_opener'
+
+  # Letter Opener Webの設定
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  # delivery_methodの設定を修正
+  config.action_mailer.delivery_method = :letter_opener_web
+
+  # 必要に応じて以下も追加
+  config.action_mailer.perform_caching = false
 end
