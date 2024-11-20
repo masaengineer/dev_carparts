@@ -2,7 +2,9 @@
 
 Rails.application.routes.draw do
   devise_for :users, controllers: {
-    sessions: 'users/sessions'
+    sessions: 'users/sessions',
+    passwords: 'users/passwords',
+    confirmations: 'users/confirmations'
   }
   resources :landing, only: [:index]
   resources :sales_management, only: [:index]
@@ -12,4 +14,8 @@ Rails.application.routes.draw do
   end
 
   root 'landing#index'
+
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
 end

@@ -22,10 +22,18 @@ RUN apt-get update && \
 # アプリケーションのワークディレクトリを設定
 WORKDIR /parts-sync
 
-# Gemfileをコピーして依存関係をインストール
-COPY Gemfile /parts-sync/Gemfile
-COPY Gemfile.lock /parts-sync/Gemfile.lock
-RUN bundle install
+# Gemfileのコピー
+COPY Gemfile /parts-sync/
+
+# Bundlerのインストールとセットアップ
+RUN gem install bundler:2.3.26
+
+# 初期のbundle installを実行
+COPY Gemfile /parts-sync/
+RUN bundle install --jobs 4 --retry 3
 
 # アプリケーションのソースコードをコピー
 COPY . /parts-sync
+
+# 最終的なbundle install
+RUN bundle install --jobs 4 --retry 3

@@ -25,6 +25,16 @@ ISSUE_URL="https://github.com/$OWNER/parts-sync/issues/${ISSUE_NUMBER##*/}"
 # 取得したIssueのURLを表示
 echo "作成されたIssueのURL: $ISSUE_URL"
 
+# ITEM_IDを取得する部分でjqコマンドが見つからないエラーが発生しています。
+# jqがインストールされていることを確認してください。
+# もしインストールされていない場合は、以下のコマンドを実行してください。
+# sudo apt-get install jq  # Debian系のLinuxの場合
+brew install jq          # macOSの場合
+
+# 認証トークンに必要なスコープが不足しているエラーが発生しています。
+# 認証トークンを更新するために、以下のコマンドを実行してください。
+gh auth refresh -s read:project
+
 # プロジェクトにIssueを追加（オーナーを明示的に指定）
 ITEM_ID=$(gh project item-add "$PROJECT_NUMBER" --owner "$OWNER" --url "$ISSUE_URL" --format json | jq -r '.id')
 
