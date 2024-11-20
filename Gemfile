@@ -88,6 +88,7 @@ group :development do
   # gem 'spring'
 
   gem 'htmlbeautifier'
+  gem 'letter_opener'
 end
 
 group :test do

@@ -2,7 +2,8 @@
 
 Rails.application.routes.draw do
   devise_for :users, controllers: {
-    sessions: 'users/sessions'
+    sessions: 'users/sessions',
+    passwords: 'users/passwords'
   }
   resources :landing, only: [:index]
   resources :sales_management, only: [:index]
