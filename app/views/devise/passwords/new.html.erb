@@ -1,16 +1,41 @@
-<h2>Forgot your password?</h2>
+<div class="mx-auto min-h-screen items-center justify-center flex flex-col max-w-screen-2xl p-4">
+  <%= render "shared/_header/user_header" %>
+  <svg class="w-[468px] h-[788px] absolute -top-20 -left-20 -z-10 transform-gpu overflow-hidden blur-2xl" viewBox="0 0 468 788" fill="none" xmlns="http://www.w3.org/2000/svg" id="Windframe_dqfxUsYpSJ">
+    <circle cx="44.5105" cy="378.637" r="156.383" fill="#4A3AFF"></circle>
+    <circle cx="119.803" cy="529.24" r="156.383" fill="#702DFF"></circle>
+    <circle cx="173.364" cy="372.857" r="156.383" fill="#2D5BFF"></circle>
+    <g filter="url(#filter0_b_1410_520)">
+      <circle cx="73.5409" cy="394.049" r="393.819" fill="white" fill-opacity="0.79"></circle>
+    </g>
+    <defs>
+      <filter id="filter0_b_1410_520" x="-460.404" y="-139.896" width="1067.89" height="1067.89" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+        <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+        <feGaussianBlur in="BackgroundImageFix" stdDeviation="70.063"></feGaussianBlur>
+        <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_1410_520"></feComposite>
+        <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_1410_520" result="shape"></feBlend>
+      </filter>
+    </defs>
+  </svg>
+  <div class="w-full p-8 max-w-lg my-auto">
+    <p class="text-center text-4xl font-bold tracking-tight mb-5">パスワードリセット</p>
+    <p class="text-lg text-center text-gray-500 w-10/12 mx-auto">パスワードリセット用のリンクをメールで送信します</p>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: "mt-10 space-y-5" }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <div class="field">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email",
+            placeholder: "メールアドレス",
+            class: "border border-gray-200 p-2.5 focus:outline-none w-full rounded-lg bg-white" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "送信",
+            class: "p-3 w-full bg-black text-white rounded-lg font-semibold" %>
+      </div>
+    <% end %>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+  <div class="w-full mt-auto fixed bottom-0">
+    <%= render "shared/footer" %>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
