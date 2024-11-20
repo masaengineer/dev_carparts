@@ -89,6 +89,7 @@ group :development do
 
   gem 'htmlbeautifier'
   gem 'letter_opener'
+  gem 'letter_opener_web'
 end
 
 group :test do
