@@ -1,0 +1,16 @@
+base_locale: ja
+locales: ja
+
+data:
+  read:
+    - config/locales/%{locale}.yml
+    - config/locales/**/%{locale}.yml
+    - config/locales/devise.%{locale}.yml
+
+search:
+  paths:
+    - app/
+
+# deviseのキーを無視する設定
+ignore_missing:
+  - 'devise.*'
