@@ -17,20 +17,20 @@
     </defs>
   </svg>
   <div class="w-full p-8 max-w-lg my-auto">
-    <p class="text-center text-4xl font-bold tracking-tight mb-5">パスワードリセット</p>
-    <p class="text-lg text-center text-gray-500 w-10/12 mx-auto">パスワードリセット用のリンクをメールで送信します</p>
+    <p class="text-center text-4xl font-bold tracking-tight mb-5"><%= t('.forgot_your_password') %></p>
+    <p class="text-lg text-center text-gray-500 w-10/12 mx-auto"><%= t('.reset_password_instruction') %></p>
 
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: "mt-10 space-y-5" }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
       <div class="field">
         <%= f.email_field :email, autofocus: true, autocomplete: "email",
-            placeholder: "メールアドレス",
+            placeholder: t('activerecord.attributes.user.email'),
             class: "border border-gray-200 p-2.5 focus:outline-none w-full rounded-lg bg-white" %>
       </div>
 
       <div class="actions">
-        <%= f.submit "送信",
+        <%= f.submit t('.send_me_reset_password_instructions'),
             class: "p-3 w-full bg-black text-white rounded-lg font-semibold" %>
       </div>
     <% end %>

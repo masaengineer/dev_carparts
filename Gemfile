@@ -56,6 +56,11 @@ gem 'bootsnap', require: false
 # Add devise
 gem 'devise'
 
+# 国際化関連のgem
+gem 'rails-i18n'           # Railsの国際化
+gem 'devise-i18n'         # Deviseの国際化
+gem 'i18n-tasks'          # 翻訳漏れの検出等の国際化支援
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
