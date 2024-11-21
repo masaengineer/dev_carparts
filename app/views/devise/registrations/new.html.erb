@@ -1,4 +1,5 @@
-<div class="mx-auto bg-white items-center justify-center flex min-h-screen max-w-screen-2xl p-4 relative isolate">
+<div class="mx-auto bg-white items-center justify-center flex flex-col min-h-screen max-w-screen-2xl p-4 relative isolate">
+  <%= render "shared/_header/guest_header" %>
   <%# 背景の装飾的なSVG要素 %>
   <svg class="w-[468px] h-[788px] sm:left-10 lg:left-20 absolute top-10 left-0 -z-10 transform-gpu overflow-hidden blur-2xl" viewBox="0 0 468 788" fill="none" xmlns="http://www.w3.org/2000/svg">
     <circle cx="44.5105" cy="378.637" r="156.383" fill="#4A3AFF"/>
@@ -18,32 +19,33 @@
   </svg>
 
   <div class="w-full p-8 max-w-lg relative isolate">
-    <p class="text-center text-4xl font-bold tracking-tight mb-10">Sign up</p>
-    <p class="text-lg text-center text-gray-500 w-10/12 mx-auto">Hey, enter your details to sign up</p>
+    <p class="text-center text-4xl font-bold tracking-tight mb-10"><%= t('.sign_up') %></p>
+    <p class="text-lg text-center text-gray-500 w-10/12 mx-auto"><%= t('.registration_message') %></p>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "mt-10" }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
       <div class="space-y-5">
         <%= f.email_field :email, autofocus: true, autocomplete: "email",
-            placeholder: "Enter email",
+            placeholder: t('activerecord.attributes.user.email'),
             class: "border border-gray-200 p-3 focus:ring-1 focus:ring-gray-600 focus:outline-none w-full rounded-lg bg-white" %>
 
         <%= f.password_field :password, autocomplete: "new-password",
-            placeholder: "Enter password (#{@minimum_password_length} characters minimum)",
+            placeholder: t('devise.registrations.new.password_placeholder', minimum_password_length: @minimum_password_length),
             class: "border border-gray-200 p-3 focus:ring-1 focus:ring-gray-600 focus:outline-none w-full rounded-lg bg-white" %>
 
         <%= f.password_field :password_confirmation, autocomplete: "new-password",
-            placeholder: "Confirm password",
+            placeholder: t('activerecord.attributes.user.password_confirmation'),
             class: "border border-gray-200 p-3 focus:ring-1 focus:ring-gray-600 focus:outline-none w-full rounded-lg bg-white" %>
       </div>
 
-      <%= f.submit "Sign up", class: "p-3 w-full bg-black text-white rounded-lg mt-10 font-semibold" %>
+      <%= f.submit t('.sign_up'), class: "p-3 w-full bg-black text-white rounded-lg mt-10 font-semibold" %>
     <% end %>
 
-    <%# Deviseのリンク（ログインページへのリンクなど）をここに追加する場合 %>
     <div class="mt-4 text-center">
       <%= render "devise/shared/links" %>
     </div>
   </div>
+  <%= render "shared/footer" %>
 </div>
+

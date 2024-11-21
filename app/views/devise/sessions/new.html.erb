@@ -19,35 +19,35 @@
   </svg>
 
   <div class="w-full p-8 mx-auto max-w-lg relative isolate">
-    <h2 class="text-center text-4xl font-bold tracking-tight mb-10">Sign in</h2>
-    <p class="text-lg text-center text-gray-500 w-10/12 mx-auto">Hey, enter your details to login</p>
+    <h2 class="text-center text-4xl font-bold tracking-tight mb-10"><%= t('.sign_in') %></h2>
+    <p class="text-lg text-center text-gray-500 w-10/12 mx-auto"><%= t('.login_message') %></p>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "mt-10" }) do |f| %>
       <div class="space-y-5">
         <%= f.email_field :email,
             autofocus: true,
             autocomplete: "email",
-            placeholder: "Enter email",
+            placeholder: t('activerecord.attributes.user.email'),
             class: "border border-gray-200 p-3 focus:ring-1 focus:ring-gray-600 focus:outline-none w-full rounded-lg bg-white" %>
 
         <div class="relative">
           <%= f.password_field :password,
               autocomplete: "current-password",
-              placeholder: "Enter password",
+              placeholder: t('activerecord.attributes.user.password'),
               class: "border border-gray-200 p-3 focus:ring-1 focus:ring-gray-600 focus:outline-none w-full rounded-lg bg-white" %>
-          <%= link_to "パスワードをお忘れの方", new_password_path(resource_name),
+          <%= link_to t('.forgot_your_password'), new_password_path(resource_name),
               class: "absolute right-0 -bottom-6 text-sm text-gray-600 hover:text-black" %>
         </div>
       </div>
 
-      <%= f.submit "Login",
+      <%= f.submit t('.sign_in'),
           class: "p-3 w-full bg-black text-white rounded-lg mt-10 font-semibold" %>
     <% end %>
 
     <div class="mt-6 text-center">
       <p class="text-gray-600">
-        アカウントをお持ちでない方は
-        <%= link_to "新規登録", new_registration_path(resource_name),
+        <%= t('.no_account_message') %>
+        <%= link_to t('.sign_up'), new_registration_path(resource_name),
             class: "text-black font-semibold hover:underline" %>
       </p>
     </div>
