@@ -50,6 +50,12 @@ jobs:
             bundle exec rails test:system
           "
 
+      - name: Run i18n-tasks
+        run: |
+          docker-compose run --rm web bash -c "
+            bundle exec i18n-tasks missing
+          "
+
   lint:
     runs-on: ubuntu-latest  # リントジョブも最新のUbuntuで実行
     steps:
