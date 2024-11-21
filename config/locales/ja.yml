@@ -1,0 +1,19 @@
+ja:
+  activerecord:
+    models:
+      user: "ユーザー"
+    attributes:
+      user:
+        email: "メールアドレス"
+        password: "パスワード"
+        password_confirmation: "パスワード確認"
+  shared:
+    header:
+      sign_in: "ログイン"
+      sign_up: "新規登録"
+      features: "機能"
+      pricing: "料金"
+      product: "製品"
+  errors:
+    messages:
+      not_saved: "入力内容にエラーがあります。"
