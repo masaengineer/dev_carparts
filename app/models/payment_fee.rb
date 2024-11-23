@@ -1,0 +1,2 @@
+class PaymentFee < ApplicationRecord
+end

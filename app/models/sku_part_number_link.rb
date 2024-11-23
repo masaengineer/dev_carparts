@@ -1,0 +1,2 @@
+class SkuPartNumberLink < ApplicationRecord
+end
