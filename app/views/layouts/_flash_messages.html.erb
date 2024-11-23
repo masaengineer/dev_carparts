@@ -1,5 +1,13 @@
-<% flash.each do |message_type, message| %>
-  <div class="<%= flash_background_color(message_type) %> px-4 py-2 rounded-md text-black mb-4">
-    <%= message %>
+<% flash.each do |type, message| %>
+  <div class="fixed top-4 right-4 w-full max-w-xs" id="alert-<%= type %>">
+    <div class="bg-blue-50 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 p-4">
+      <div class="flex items-start">
+        <div class="flex-1">
+          <p class="text-sm font-medium text-gray-900">
+            <%= message %>
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 <% end %>
