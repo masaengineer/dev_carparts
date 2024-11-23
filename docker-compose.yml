@@ -21,6 +21,11 @@ services:
       - db
     environment:
       DATABASE_URL: postgres://postgres:password@db:5432/parts_sync_development
+      RAILS_ENV: development
+      RUBY_DEBUG_OPEN: 'true'
+      RUBY_DEBUG_HOST: '0.0.0.0'
+    tty: true
+    stdin_open: true
 
 volumes:
   postgres_data:

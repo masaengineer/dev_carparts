@@ -1,11 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  devise_for :users, controllers: {
-    sessions: 'users/sessions',
-    passwords: 'users/passwords',
-    confirmations: 'users/confirmations'
-  }
+  devise_for :users
+
   resources :landing, only: [:index]
   resources :sales_management, only: [:index]
 

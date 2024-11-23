@@ -92,9 +92,9 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem 'spring'
 
-  gem 'htmlbeautifier'
-  gem 'letter_opener'
-  gem 'letter_opener_web'
+  gem 'htmlbeautifier'  # HTMLを整形するためのgem
+  gem 'letter_opener'    # メールをブラウザで開くためのgem
+  gem 'letter_opener_web' # Webでメールを表示するためのgem
 end
 
 group :test do
