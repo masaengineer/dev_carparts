@@ -10,9 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_11_23_154439) do
+ActiveRecord::Schema[7.0].define(version: 2024_11_23_154903) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "orders", force: :cascade do |t|
+    t.string "order_number", null: false, comment: "Unique order identifier"
+    t.date "sale_date", comment: "Date the order is confirmed"
+    t.integer "channel_id", comment: "Foreign key to channel"
+    t.integer "tool_user_id", comment: "Foreign key to tool user"
+    t.integer "buyer_id", comment: "Foreign key to buyer"
+    t.string "order_status", comment: "Order status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_number"], name: "index_orders_on_order_number", unique: true
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
