@@ -19,7 +19,7 @@ RUN apt-get update && \
     apt-get install -y gh && \
     rm -rf /var/lib/apt/lists/*
 
-# アプリケーションのワークディレクトリを設定
+# アプリケーションのワクディレクトリを設定
 WORKDIR /parts-sync
 
 # Gemfileのコピー
@@ -35,5 +35,15 @@ RUN bundle install --jobs 4 --retry 3
 # アプリケーションのソースコードをコピー
 COPY . /parts-sync
 
+# entrypoint.shをコピーして実行権限を付与
+COPY entrypoint.sh /usr/bin/
+RUN chmod +x /usr/bin/entrypoint.sh
+
+# エントリーポイントを設定
+ENTRYPOINT ["entrypoint.sh"]
+
 # 最終的なbundle install
 RUN bundle install --jobs 4 --retry 3
+
+# PostgreSQLクライアントをインストール
+RUN apt-get update && apt-get install -y postgresql-client

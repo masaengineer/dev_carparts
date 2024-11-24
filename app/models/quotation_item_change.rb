@@ -1,0 +1,2 @@
+class QuotationItemChange < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class AdvertisingCost < ApplicationRecord
+end
