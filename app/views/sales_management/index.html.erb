@@ -1,5 +1,54 @@
-<h1>売上管理画面</h1>
+<div class="container mx-auto px-4">
+  <h1 class="text-2xl font-bold mb-4">販売管理</h1>
 
-<%= button_to "ログアウト",
-    destroy_user_session_path,
-    method: :delete %>
+  <div class="overflow-x-auto">
+    <table class="min-w-full bg-white border border-gray-300">
+      <thead>
+        <tr class="bg-gray-100">
+          <th class="px-6 py-3 border-b border-gray-300 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+            販売価格
+          </th>
+          <th class="px-6 py-3 border-b border-gray-300 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+            SKUコード
+          </th>
+          <th class="px-6 py-3 border-b border-gray-300 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+            OEM部品番号
+          </th>
+          <th class="px-6 py-3 border-b border-gray-300 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+            国内商品名
+          </th>
+          <th class="px-6 py-3 border-b border-gray-300 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+            販売チャネル
+          </th>
+          <th class="px-6 py-3 border-b border-gray-300 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+            仕入価格
+          </th>
+        </tr>
+      </thead>
+      <tbody class="bg-white">
+        <% @sales_data.each do |sale| %>
+          <tr class="hover:bg-gray-50">
+            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300">
+              <%= number_to_currency(sale.price, unit: '¥') %>
+            </td>
+            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300">
+              <%= sale.skus_code %>
+            </td>
+            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300">
+              <%= sale.oem_part_number %>
+            </td>
+            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300">
+              <%= sale.domestic_title %>
+            </td>
+            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300">
+              <%= sale.channel_name %>
+            </td>
+            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300">
+              <%= number_to_currency(sale.purchase_price, unit: '¥') %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

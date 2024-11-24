@@ -1,2 +1,0 @@
-class ToolUser < ApplicationRecord
-end
