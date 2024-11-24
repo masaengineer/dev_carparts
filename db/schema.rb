@@ -53,6 +53,18 @@ ActiveRecord::Schema[7.0].define(version: 2024_11_23_161947) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "products", force: :cascade do |t|
+    t.string "oem_part_number", null: false, comment: "OEM part number"
+    t.boolean "is_oem", null: false, comment: "Indicates if it is an OEM part"
+    t.string "domestic_title", comment: "Domestic title"
+    t.string "international_title", comment: "International title"
+    t.bigint "product_categories_id", comment: "Foreign key to product categories"
+    t.string "product_status", comment: "Product status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_categories_id"], name: "index_products_on_product_categories_id"
+  end
+  
   create_table "inventories", force: :cascade do |t|
     t.bigint "product_id", null: false, comment: "Foreign key to products"
     t.integer "quantity", null: false, comment: "Quantity in inventory"
@@ -124,18 +136,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_11_23_161947) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["parent_category_id"], name: "index_product_categories_on_parent_category_id"
-  end
-
-  create_table "products", force: :cascade do |t|
-    t.string "oem_part_number", null: false, comment: "OEM part number"
-    t.boolean "is_oem", null: false, comment: "Indicates if it is an OEM part"
-    t.string "domestic_title", comment: "Domestic title"
-    t.string "international_title", comment: "International title"
-    t.bigint "product_categories_id", comment: "Foreign key to product categories"
-    t.string "product_status", comment: "Product status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["product_categories_id"], name: "index_products_on_product_categories_id"
   end
 
   create_table "quotation_item_changes", force: :cascade do |t|
