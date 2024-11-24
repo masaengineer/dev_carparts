@@ -11,7 +11,7 @@ services:
 
   web:
     build: .
-    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
     volumes:
       - .:/parts-sync
       - bundle_data:/usr/local/bundle
@@ -24,6 +24,7 @@ services:
       RAILS_ENV: development
       RUBY_DEBUG_OPEN: 'true'
       RUBY_DEBUG_HOST: '0.0.0.0'
+      POSTGRES_PASSWORD: password
     tty: true
     stdin_open: true
 
