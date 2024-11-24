@@ -1,0 +1,33 @@
+ja:
+  shared:
+    header:
+      sign_in: "ログイン"
+      sign_up: "新規登録"
+      features: "機能"
+      pricing: "料金"
+      product: "製品"
+      profile: "プロフィール"
+      sign_out: "ログアウト"
+      dashboard: "ダッシュボード"
+      sales_management: "売上管理"
+    error_messages:
+      not_saved:
+        one: "エラーが発生したため %{resource} は保存されませんでした"
+        other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした"
+  profiles:
+    edit:
+      edit_profile: "プロフィール編集"
+      update: "更新する"
+      name_placeholder: "例：山田 太郎"
+      email_placeholder: "例：example@example.com"
+    update:
+      success: "プロフィールを更新しました"
+  sales_management:
+    index:
+      title: "販売管理"
+      price: "販売価格"
+      skus_code: "SKUコード"
+      oem_part_number: "OEM部品番号"
+      domestic_title: "国内商品名"
+      channel_name: "販売チャネル"
+      purchase_price: "仕入価格"

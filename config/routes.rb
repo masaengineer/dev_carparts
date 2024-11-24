@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :landing, only: [:index]
   resources :sales_management, only: [:index]
+  resource :profile, only: [:edit, :update]
 
   authenticated :user do
     root 'sales_management#index', as: :authenticated_root

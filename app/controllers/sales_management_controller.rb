@@ -15,7 +15,6 @@ class SalesManagementController < ApplicationController
                         'sales_channels.channel_name',
                         'procurements.purchase_price'
                       ).distinct
-    debugger
     puts "デバッグ: SalesManagementController#indexが終了しました"
   end
 end

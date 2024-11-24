@@ -1,0 +1,7 @@
+ja:
+  profiles:
+    edit:
+      edit_profile: "プロフィール編集"
+      update: "更新する"
+    update:
+      success: "プロフィールを更新しました"
